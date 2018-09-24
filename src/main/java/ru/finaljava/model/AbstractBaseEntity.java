@@ -8,9 +8,12 @@ import javax.persistence.*;
 @MappedSuperclass
 @Access(AccessType.FIELD)
 public abstract class AbstractBaseEntity implements Persistable<Integer> {
-    @Column(name = "id", unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    public static final int START_SEQ = 100000;
+
     @Id
+    @Column(name = "id", unique = true, nullable = false)
+    @SequenceGenerator(name = "global_id_seq", sequenceName = "global_id_seq", allocationSize = 1, initialValue = START_SEQ)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_id_seq")
     protected Integer id;
 
     protected AbstractBaseEntity() {
@@ -23,6 +26,10 @@ public abstract class AbstractBaseEntity implements Persistable<Integer> {
     @Override
     public boolean isNew() {
         return this.id == null;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
