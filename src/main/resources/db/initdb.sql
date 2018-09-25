@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS restaurants;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS results;
 DROP SEQUENCE IF EXISTS global_id_seq;
-CREATE SEQUENCE global_id_seq start 10000;
+CREATE SEQUENCE global_id_seq  start 10000;
 
 CREATE TABLE users (
   id       INTEGER PRIMARY KEY DEFAULT nextval('global_id_seq'),
@@ -44,7 +44,8 @@ CREATE TABLE restaurants (
   phone   VARCHAR NULL,
   page    VARCHAR NULL
 );
-CREATE UNIQUE INDEX restaurants_unique_name_idx ON restaurants (name);
+CREATE UNIQUE INDEX restaurants_unique_name_idx
+  ON restaurants (name);
 
 CREATE TABLE results (
   id            SERIAL PRIMARY KEY,

@@ -8,10 +8,10 @@ import java.util.List;
 
 @Repository
 public class DishRepositoryImpl implements DishRepository {
-    private DishCrudRepository repository;
+    private CrudDishRepository repository;
 
     @Autowired
-    public DishRepositoryImpl(DishCrudRepository repository) {
+    public DishRepositoryImpl(CrudDishRepository repository) {
         this.repository = repository;
     }
 
@@ -28,5 +28,10 @@ public class DishRepositoryImpl implements DishRepository {
     @Override
     public List<Dish> getAll() {
         return repository.getAll();
+    }
+
+    @Override
+    public Dish get(int id) {
+        return repository.findById(id).orElse(null);
     }
 }

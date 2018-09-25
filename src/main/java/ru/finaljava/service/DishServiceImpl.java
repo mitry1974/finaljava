@@ -42,4 +42,9 @@ public class DishServiceImpl implements DishService {
     public List<Dish> getAll() {
         return repository.getAll();
     }
+
+    @Override
+    public Dish get(int id) {
+        return checkNotFoundWithId(repository.get(id), id);
+    }
 }

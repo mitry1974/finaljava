@@ -13,4 +13,6 @@ public interface DishService {
     void delete(int id) throws NotFoundException;
 
     List<Dish> getAll();
+
+    Dish get(int id);
 }

@@ -5,22 +5,18 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-import ru.finaljava.model.Dish;
+import ru.finaljava.model.User;
 
 import java.util.List;
 
 @Transactional(readOnly = true)
-public interface DishCrudRepository extends JpaRepository<Dish, Integer> {
+public interface CrudUserRepository extends JpaRepository<User, Integer> {
+
     @Modifying
     @Transactional
-    @Query("DELETE from Dish d WHERE  d.id=:id")
+    @Query("DELETE FROM User u WHERE u.id=:id")
     int delete(@Param("id") int id);
 
-    @Override
-    @Modifying
-    @Transactional
-    Dish save(Dish dish);
-
-    @Query("SELECT d FROM Dish d")
-    List<Dish> getAll();
+    @Query("SELECT u.id as id, u.name as name, u.email as email, u.password as password FROM User u")
+    List<User> getAll();
 }

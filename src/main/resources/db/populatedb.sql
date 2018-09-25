@@ -1,10 +1,16 @@
-DELETE FROM users;
-DELETE FROM user_roles;
-DELETE FROM dishes;
-DELETE FROM menu_items;
-DELETE FROM restaurants;
+DELETE
+FROM users;
+DELETE
+FROM user_roles;
+DELETE
+FROM dishes;
+DELETE
+FROM menu_items;
+DELETE
+FROM restaurants;
 
-ALTER SEQUENCE global_id_seq RESTART WITH 10000;
+ALTER SEQUENCE global_id_seq
+  RESTART WITH 10000;
 
 INSERT INTO users (name, email, password)
 VALUES ('User', 'user@yandex.ru', 'password'),
@@ -17,63 +23,14 @@ VALUES ('ROLE_USER', 10000),
 
 INSERT INTO dishes (type, name)
 VALUES ('STARTER', 'Салат рыбный'),
-/*0*/
-       ('STARTER', 'Салат Мимоза'),
-/*1*/
-       ('STARTER', 'Салат Оливье'),
-/*2*/
-       ('STARTER', 'Маринованные огурцы'),
-/*3*/
-       ('STARTER', 'Соления по грузински'),
-/*4*/
        ('STARTER', 'Квашенная капуста'),
-/*5*/
        ('SOUP', 'Солянка'),
-/*6*/
-       ('SOUP', 'Борщ'),
-/*7*/
-       ('SOUP', 'Щи постные'),
-/*8*/
-       ('SOUP', 'Щи мясные'),
-/*9*/
-       ('SOUP', 'Уха'),
-/*10*/
        ('SOUP', 'Минестроне'),
-/*11*/
        ('MAIN', 'Спагетти неополитано'),
-/*12*/
-       ('MAIN', 'Стейк'),
-/*13*/
-       ('MAIN', 'Спагетти Котлета мясная'),
-/*14*/
-       ('MAIN', 'Хинкали из говядины'),
-/*15*/
-       ('MAIN', 'Хинкали из баранины'),
-/*16*/
-       ('MAIN', 'Плов'),
-/*16*/
        ('MAIN', 'Пельмени'),
-/*17*/
        ('DESERT', 'Мороженное'),
-/*18*/
-       ('DESERT', 'Торт лимонный'),
-/*19*/
-       ('DESERT', 'Чизкейк'),
-/*20*/
-       ('DESERT', 'Торт малиновый'),
-/*21*/
        ('DESERT', 'Десерт фруктовый'),
-/*22*/
-       ('DRINKS', 'Чай черный'),
-/*23*/
-       ('DRINKS', 'Чай зеленый'),
-/*24*/
-       ('DRINKS', 'Кофе по восточному'),
-/*25*/
-       ('DRINKS', 'Кофе американо'),
-/*26*/
-       ('DRINKS', 'Кофе эспрессо');
-/*27*/
+       ('DRINK', 'Кофе эспрессо');
 
 INSERT INTO restaurants (name, address, phone, page)
 VALUES ('Мама Рома', 'Санкт-Петербург, пр. Славы, д.30', '', 'http://http://www.mamaroma.ru'),
