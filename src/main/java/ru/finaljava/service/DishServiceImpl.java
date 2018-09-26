@@ -30,7 +30,6 @@ public class DishServiceImpl implements DishService {
     public void update(Dish dish) throws NotFoundException {
         Assert.notNull(dish, "dish must not be null");
         checkNotFoundWithId(repository.save(dish), dish.getId());
-        repository.save(dish);
     }
 
     @Override

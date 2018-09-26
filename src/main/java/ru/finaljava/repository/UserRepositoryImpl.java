@@ -1,5 +1,6 @@
 package ru.finaljava.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.finaljava.model.User;
 
@@ -8,6 +9,11 @@ import java.util.List;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
     private CrudUserRepository repository;
+
+    @Autowired
+    public UserRepositoryImpl(CrudUserRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public User save(User user) {

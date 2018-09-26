@@ -1,6 +1,5 @@
 package ru.finaljava.service;
 
-import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaSystemException;
@@ -10,7 +9,7 @@ import util.exception.NotFoundException;
 
 import java.util.List;
 
-import static ru.finaljava.DishTestData.*;
+import static ru.finaljava.data.DishTestData.*;
 
 public class DishServiceTest extends AbstractServiceTest {
     @Autowired

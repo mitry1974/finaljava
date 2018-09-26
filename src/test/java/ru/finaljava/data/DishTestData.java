@@ -1,4 +1,4 @@
-package ru.finaljava;
+package ru.finaljava.data;
 
 import ru.finaljava.model.Dish;
 import ru.finaljava.model.DishType;
